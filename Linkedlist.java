@@ -175,6 +175,20 @@ class Llist{
             System.out.println("value not found");
         }
     }
+
+    public void reverse(){
+        Node current = head;
+        Node prev = null;
+        Node next = head.next;
+        
+        while(current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    } 
 }
 public class Linkedlist {
     public static void main(String args[]){
@@ -192,7 +206,8 @@ public class Linkedlist {
             System.out.println("7. delete at end");
             System.out.println("8. insert at end");
             System.out.println("9. search value");
-            System.out.println("10. exit");
+            System.out.println("10. reverse");
+            System.out.println("11. exit");
             System.out.println("enter choice");
             choice = in.nextInt();
             switch(choice){
@@ -242,6 +257,9 @@ public class Linkedlist {
                     l.search(val);
                     break;
                 case 10:
+                    l.reverse();
+                    break;
+                case 11:
                     flag=0;
                     break;
                 default:
